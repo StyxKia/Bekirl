@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* GENEL AYARLAR */
+        html { scroll-behavior: smooth; } /* Menülere tıklayınca yumuşak kaydırma sağlar */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #f9f9f9; color: #333; line-height: 1.6; overflow-x: hidden; transition: direction 0.3s ease; }
         a { text-decoration: none; color: inherit; }
@@ -75,7 +76,7 @@
         .gallery-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; opacity: 0; transition: 0.3s; color: #d4af37; font-size: 2rem; }
         .gallery-item:hover .gallery-overlay { opacity: 1; }
 
-        /* YORUMLAR / TESTIMONIALS */
+        /* YORUMLAR */
         .reviews-section { background: #1a1a1a; color: #fff; padding: 80px 5%; text-align: center; }
         .reviews-section .section-title { color: #fff; margin-top: 0; }
         .reviews-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; }
@@ -84,7 +85,7 @@
         .review-text { font-style: italic; color: #ccc; margin-bottom: 20px; font-size: 0.95rem; }
         .review-author { font-weight: bold; color: #fff; }
 
-        /* SIKÇA SORULAN SORULAR / FAQ */
+        /* SIKÇA SORULAN SORULAR */
         .faq-container { max-width: 800px; margin: 0 auto 80px; padding: 0 20px; }
         .faq-item { background: #fff; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); overflow: hidden; }
         .faq-item summary { padding: 20px; font-weight: bold; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; color: #1a1a1a; }
@@ -115,28 +116,19 @@
         .modal input:focus, .modal select:focus { outline: none; border-color: #d4af37; background: #fff; }
         .modal button { width: 100%; margin-top: 15px; font-size: 1.1rem; padding: 15px; justify-content: center; }
 
-        /* 📱 %100 MOBİL UYUM (RESPONSIVE) AYARLARI 📱 */
+        /* 📱 MOBİL UYUM */
         @media (max-width: 768px) {
-            /* Navbar ve Menü Düzeni */
             header { flex-direction: column; padding: 15px; gap: 15px; }
             .nav-links { flex-wrap: wrap; justify-content: center; gap: 12px; font-size: 0.9rem; }
-            
-            /* Karşılama Ekranı (Hero) Küçültmesi */
             .hero { min-height: 60vh; padding: 50px 15px; }
             .hero h1 { font-size: 2.2rem; }
             .hero p { font-size: 1.1rem; }
             .hero-buttons { flex-direction: column; width: 100%; padding: 0 20px; }
             .hero-buttons button { width: 100%; }
-
-            /* Başlıklar */
             .section-title { font-size: 2rem; margin: 50px 0 15px; }
             .section-subtitle { margin-bottom: 30px; }
-
-            /* Kutucuklar (Tek Sütun ve Ekrana Sıfırlama) */
             .features-grid { grid-template-columns: 1fr; }
             .services-container, .reviews-container, .gallery-container { padding: 0 15px; gap: 20px; }
-            
-            /* İletişim ve Harita */
             .contact-info { padding: 40px 20px; }
             .map-container { min-height: 300px; }
         }
@@ -163,7 +155,7 @@
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="tepe">
         <h1 data-i18n="hero_title">Kusursuz Görünümün <span>Yeni Adresi</span></h1>
         <p data-i18n="hero_desc">Antalya Kemerağzı'nda Premium Kuaför & Güzellik Salonu</p>
         <div class="hero-buttons">
@@ -198,7 +190,7 @@
         </div>
     </section>
 
-    <h2 class="section-title" data-i18n="srv_main_title">Hizmetlerimiz</h2>
+    <h2 class="section-title" data-i18n="srv_main_title" id="hizmetler">Hizmetlerimiz</h2>
     <p class="section-subtitle" data-i18n="srv_main_sub">Profesyonel Dokunuşlar</p>
     <section class="services-container">
         <div class="service-card">
@@ -295,7 +287,7 @@
         </div>
         
         <div class="map-container">
-            <iframe src="https://maps.google.com/maps?q=By+Bekir+Hairdresser,+Kemerağzı,+tesisler+caddesi,+07112+Aksu/Antalya&output=embed" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://maps.google.com/maps?q=By+Bekir+Hairdresser,+Kemerağzı,+tesisler+caddesi,+07112+Aksu/Antalya&output=embed" allowfullscreen="" loading="lazy" tabindex="-1"></iframe>
         </div>
     </section>
 
@@ -324,6 +316,13 @@
     </div>
 
     <script>
+        // Sayfa yüklendiğinde kesin olarak en tepeye sar (URL'de hashtag yoksa)
+        window.onload = function() {
+            if (!window.location.hash) {
+                window.scrollTo(0, 0);
+            }
+        };
+
         const translations = {
             tr: {
                 nav_about: "Hakkımızda", nav_services: "Hizmetler", nav_gallery: "Galeri", nav_contact: "İletişim", nav_book: "Randevu Al",
@@ -447,10 +446,8 @@
             }
         };
 
-        // DİL DEĞİŞTİRME FONKSİYONU
         function changeLanguage() {
             const lang = document.getElementById("langSwitcher").value;
-            
             if (lang === 'ar') {
                 document.body.style.direction = "rtl";
                 document.body.style.textAlign = "right";
@@ -458,14 +455,12 @@
                 document.body.style.direction = "ltr";
                 document.body.style.textAlign = "left";
             }
-
             document.querySelectorAll("[data-i18n]").forEach(element => {
                 const key = element.getAttribute("data-i18n");
                 if (translations[lang] && translations[lang][key]) {
                     element.innerHTML = translations[lang][key];
                 }
             });
-
             document.querySelectorAll("[data-placeholder]").forEach(element => {
                 const key = element.getAttribute("data-placeholder");
                 if (translations[lang] && translations[lang][key]) {
@@ -474,23 +469,19 @@
             });
         }
 
-        // MODAL (AÇILIR PENCERE) İŞLEMLERİ
         const modal = document.getElementById("randevuModal");
         function openModal() { modal.style.display = "flex"; }
         function closeModal() { modal.style.display = "none"; }
         window.onclick = function(event) { if (event.target == modal) { modal.style.display = "none"; } }
 
-        // WHATSAPP YÖNLENDİRME
         function sendToWhatsApp(event) {
             event.preventDefault();
             const lang = document.getElementById("langSwitcher").value;
-            
             const isim = document.getElementById("isim").value;
             const hizmetSelect = document.getElementById("hizmet");
             const hizmet = hizmetSelect.options[hizmetSelect.selectedIndex].text; 
             const tarih = document.getElementById("tarih").value;
             const saat = document.getElementById("saat").value;
-
             const telefonNumarasi = "905307174121";
 
             let helloMsg = "Merhaba By Bekir Hairdresser, randevu almak istiyorum.";
@@ -498,14 +489,8 @@
             if(lang === 'de') helloMsg = "Hallo By Bekir Hairdresser, ich möchte einen Termin vereinbaren.";
             if(lang === 'ar') helloMsg = "مرحبًا صالون بكر، أود حجز موعد.";
 
-            const mesaj = `${helloMsg}%0A%0A` +
-                          `👤 ${isim}%0A` +
-                          `✂️ ${hizmet}%0A` +
-                          `📅 ${tarih}%0A` +
-                          `⏰ ${saat}`;
-
-            const whatsappLink = `https://wa.me/${telefonNumarasi}?text=${mesaj}`;
-            window.open(whatsappLink, "_blank");
+            const mesaj = `${helloMsg}%0A%0A👤 ${isim}%0A✂️ ${hizmet}%0A📅 ${tarih}%0A⏰ ${saat}`;
+            window.open(`https://wa.me/${telefonNumarasi}?text=${mesaj}`, "_blank");
             closeModal();
         }
     </script>
