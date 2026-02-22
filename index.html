@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>By Bekir Hairdresser | Premium Hair & Beauty</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* GENEL VE OPTİMİZASYON AYARLARI */
-        html { scroll-behavior: smooth; }
+        /* GENEL VE MOBİL OPTİMİZASYON AYARLARI */
+        html { scroll-behavior: smooth; max-width: 100vw; overflow-x: hidden; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; -webkit-tap-highlight-color: transparent; }
-        body { background-color: #f5f5f5; color: #333; line-height: 1.6; overflow-x: hidden; transition: direction 0.3s ease; width: 100%; }
+        body { background-color: #f5f5f5; color: #333; line-height: 1.6; overflow-x: hidden; max-width: 100vw; transition: direction 0.3s ease; }
         a { text-decoration: none; color: inherit; }
         
         /* ÇİFT DİLLİ (BILINGUAL) ALT BAŞLIK KLASI */
@@ -34,8 +34,8 @@
         .btn-gold:hover { background-color: #fff; color: #d4af37; border: 1px solid #d4af37; transform: translateY(-2px); }
 
         /* HERO (KARŞILAMA EKRANI) */
-        .hero { min-height: 85vh; padding: 100px 20px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover fixed; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; width: 100%; border-bottom: 5px solid #d4af37; }
-        .hero h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 5px rgba(0,0,0,0.8); }
+        .hero { min-height: 85vh; padding: 100px 20px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1521590832167-7bfc17484d20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; width: 100%; border-bottom: 5px solid #d4af37; }
+        .hero h1 { font-size: clamp(2.2rem, 5vw, 4.5rem); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 5px rgba(0,0,0,0.8); line-height: 1.2; }
         .hero h1 span { color: #d4af37; }
         .hero p { font-size: clamp(1.1rem, 3vw, 1.4rem); margin-bottom: 40px; font-style: italic; max-width: 700px; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: #eee; }
         .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; width: 100%; }
@@ -51,25 +51,20 @@
         .about-text h3 { font-size: 2.2rem; color: #d4af37; margin-bottom: 25px; line-height: 1.2; }
         .about-text p { margin-bottom: 20px; font-size: 1.15rem; color: #444; text-align: justify; }
         .features-grid { flex: 1; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; width: 100%; }
-        .feature-box { background: #fff; padding: 30px 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border-bottom: 4px solid #d4af37; transition: 0.4s; position: relative; overflow: hidden; }
+        .feature-box { background: #fff; padding: 30px 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border-bottom: 4px solid #d4af37; transition: 0.4s; }
         .feature-box:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(212,175,55,0.2); }
         .feature-box i { font-size: 2.5rem; color: #111; margin-bottom: 15px; transition: color 0.3s; }
         .feature-box:hover i { color: #d4af37; }
         .feature-box h4 { margin-bottom: 5px; color: #111; font-size: 1.1rem; }
 
-        /* HİZMETLER KARTLARI (DOLU & GÖZ ALICI) */
+        /* HİZMETLER KARTLARI */
         .services-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; padding: 0 5%; margin: 0 auto 50px; max-width: 1400px; }
         .service-card { background: #fff; width: 100%; padding: 40px 30px; text-align: center; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.4s ease; border: 1px solid #eee; position: relative; display: flex; flex-direction: column; }
         .service-card:hover { transform: translateY(-12px); border-color: #d4af37; box-shadow: 0 20px 40px rgba(212,175,55,0.15); }
-        
-        /* Şık Rozetler */
-        .badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #111; color: #d4af37; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; border: 2px solid #d4af37; box-shadow: 0 5px 10px rgba(0,0,0,0.2); white-space: nowrap; z-index: 10; }
-        
+        .badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #111; color: #d4af37; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; border: 2px solid #d4af37; white-space: nowrap; z-index: 10; }
         .service-icon { font-size: 3rem; color: #d4af37; margin-bottom: 20px; filter: drop-shadow(0 4px 6px rgba(212,175,55,0.4)); }
         .service-card h3 { font-size: 1.6rem; color: #111; margin-bottom: 15px; line-height: 1.2; }
         .service-card p { color: #555; font-size: 1rem; line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
-        
-        /* Gelişmiş Detaylar Menüsü */
         .service-details { text-align: left; background: #fdfdfd; border: 1px solid #eaeaea; border-radius: 8px; padding: 15px; margin-top: auto; }
         .service-details summary { font-weight: 700; cursor: pointer; color: #111; list-style: none; display: flex; justify-content: space-between; align-items: center; outline: none; font-size: 1rem; padding: 5px 0; touch-action: manipulation; border-bottom: 1px solid #eee; padding-bottom: 10px; }
         .service-details summary::-webkit-details-marker { display: none; }
@@ -78,11 +73,11 @@
         .service-details ul { margin-top: 15px; list-style: none; padding-left: 0; color: #444; font-size: 0.95rem; }
         .service-details li { margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px dashed #eee; display: flex; align-items: flex-start; gap: 10px; }
         .service-details li:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-        .service-details li i { color: #d4af37; margin-top: 4px; font-size: 0.85rem; } /* Altın tik işareti */
+        .service-details li i { color: #d4af37; margin-top: 4px; font-size: 0.85rem; }
 
-        /* GALERİ */
+        /* GALERİ (KESİN ÇALIŞAN GÖRSELLER İLE) */
         .gallery-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 0 5%; margin: 0 auto 80px; max-width: 1400px; }
-        .gallery-item { height: 300px; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); position: relative; }
+        .gallery-item { height: 300px; overflow: hidden; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); position: relative; background: #222; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.7s ease; }
         .gallery-item:hover img { transform: scale(1.15); filter: brightness(0.7); }
         .gallery-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(212,175,55,0.4); display: flex; justify-content: center; align-items: center; opacity: 0; transition: 0.4s; color: #fff; font-size: 3rem; }
@@ -120,35 +115,31 @@
         footer { background: #000; color: #666; text-align: center; padding: 25px; font-size: 0.95rem; width: 100%; border-top: 1px solid #222; }
         footer span { color: #d4af37; font-weight: bold; }
 
-        /* WHATSAPP MODAL & VIP AKILLI FORM */
+        /* WHATSAPP MODAL & FORMLAR (iOS GÖRÜNÜM HATASI DÜZELTİLDİ) */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); justify-content: center; align-items: center; backdrop-filter: blur(8px); padding: 15px; opacity: 0; animation: fadeIn 0.3s forwards; }
         @keyframes fadeIn { to { opacity: 1; } }
-        
-        .modal-content { background-color: #fff; padding: 40px 30px; border-radius: 20px; width: 100%; max-width: 480px; text-align: center; position: relative; box-shadow: 0 15px 50px rgba(212,175,55,0.2); transform: scale(0.9); animation: popUp 0.3s forwards; }
+        .modal-content { background-color: #fff; padding: 30px 20px; border-radius: 20px; width: 100%; max-width: 480px; text-align: center; position: relative; box-shadow: 0 15px 50px rgba(212,175,55,0.2); transform: scale(0.9); animation: popUp 0.3s forwards; max-height: 90vh; overflow-y: auto; }
         @keyframes popUp { to { transform: scale(1); } }
-
-        .close-btn { position: absolute; top: 15px; right: 25px; font-size: 35px; cursor: pointer; color: #111; transition: color 0.3s; touch-action: manipulation; font-weight: 300; }
+        .close-btn { position: absolute; top: 10px; right: 20px; font-size: 35px; cursor: pointer; color: #111; transition: color 0.3s; touch-action: manipulation; font-weight: 300; z-index: 10; }
         .close-btn:hover { color: #d4af37; }
         
-        .modal input, .modal select { width: 100%; padding: 16px; margin: 10px 0; background: #f9f9f9; border: 2px solid #eaeaea; color: #333; border-radius: 10px; font-size: 16px; -webkit-appearance: none; appearance: none; transition: 0.3s; font-weight: 500; }
+        /* Girdi (Input) Kutuları */
+        .modal input, .modal select { width: 100%; padding: 14px; margin: 5px 0 15px; background: #f9f9f9; border: 2px solid #eaeaea; color: #333; border-radius: 10px; font-size: 16px; transition: 0.3s; font-weight: 500; }
         .modal input:focus, .modal select:focus { outline: none; border-color: #d4af37; background: #fff; box-shadow: 0 0 10px rgba(212,175,55,0.1); }
-        .modal select { background-image: url('data:image/svg+xml;utf8,<svg fill="%23d4af37" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); background-repeat: no-repeat; background-position-x: 95%; background-position-y: 50%; cursor: pointer; }
+        .modal select { -webkit-appearance: none; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill="%23d4af37" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); background-repeat: no-repeat; background-position-x: 95%; background-position-y: 50%; cursor: pointer; }
         
-        /* Akıllı VIP Konteyner Animasyonu */
+        /* Etiketler (Labels - iOS'ta Boş Kutu Sorunu İçin Eklendi) */
+        .form-label { display: block; text-align: left; font-size: 0.85rem; font-weight: bold; color: #555; margin-bottom: 2px; padding-left: 5px; }
+
         #vipServiceContainer { overflow: hidden; max-height: 0; transition: max-height 0.4s ease-out; opacity: 0; }
-        #vipServiceContainer.show { max-height: 100px; opacity: 1; margin-bottom: 10px; }
+        #vipServiceContainer.show { max-height: 150px; opacity: 1; margin-bottom: 5px; }
+        .modal button { width: 100%; margin-top: 10px; font-size: 1.2rem; padding: 15px; justify-content: center; letter-spacing: 1px; border-radius: 10px; }
 
-        .modal button { width: 100%; margin-top: 20px; font-size: 1.2rem; padding: 18px; justify-content: center; letter-spacing: 1px; border-radius: 10px; }
-
-        /* MOBİL İÇİN SABİT YÜZEN WHATSAPP BUTONU (FAB) */
+        /* MOBİL SABİT BUTON */
         .mobile-fab { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; width: 65px; height: 65px; border-radius: 50%; display: none; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5); z-index: 999; text-decoration: none; animation: pulse 2s infinite; }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
 
-        /* 📱 MOBİL (RESPONSIVE) AYARLARI 📱 */
+        /* 📱 MOBİL (RESPONSIVE) KESİN DÜZELTMELER 📱 */
         @media (max-width: 768px) {
             header { flex-direction: column; padding: 20px 15px; gap: 15px; }
             .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; font-size: 1rem; width: 100%; }
@@ -157,11 +148,19 @@
             .hero-buttons button { width: 100%; }
             .section-title { margin: 60px 0 15px; }
             .section-subtitle { margin-bottom: 40px; }
-            .features-grid { grid-template-columns: 1fr; }
+            
+            /* Sıkışma Hatası Burada Çözüldü: Sütunları Alt Alta Zorla */
+            .about-section { flex-direction: column; gap: 30px; }
+            .about-text, .features-grid { width: 100%; min-width: 100%; flex: none; }
+            .features-grid { grid-template-columns: 1fr; } 
+            
+            .services-container, .gallery-container, .reviews-container { grid-template-columns: 1fr; }
+            
+            .contact-section { flex-direction: column; }
+            .contact-info, .map-container { width: 100%; min-width: 100%; flex: none; }
             .contact-info { padding: 50px 20px; }
             .map-container { min-height: 350px; }
             
-            /* Mobilde Sabit Butonu Göster, Yukarıdaki "Randevu Al" menü butonunu gizle */
             .mobile-fab { display: flex; }
             .nav-links .btn-whatsapp { display: none; }
         }
@@ -315,10 +314,10 @@
 
     <h2 class="section-title" id="galeri" data-i18n="gal_title">Our Gallery</h2>
     <section class="gallery-container">
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Hair Styling" loading="lazy"><div class="gallery-overlay"><i class="fab fa-instagram"></i></div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Barber" loading="lazy"><div class="gallery-overlay"><i class="fab fa-instagram"></i></div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Nails & Spa" loading="lazy"><div class="gallery-overlay"><i class="fab fa-instagram"></i></div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Salon Interior" loading="lazy"><div class="gallery-overlay"><i class="fab fa-instagram"></i></div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hair Styling" loading="lazy"><div class="gallery-overlay"><i class="fab fa-instagram"></i></div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Barber" loading="lazy"><div class="gallery-overlay"><i class="fab fa-instagram"></i></div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nails & Spa" loading="lazy"><div class="gallery-overlay"><i class="fab fa-instagram"></i></div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Salon Interior" loading="lazy"><div class="gallery-overlay"><i class="fab fa-instagram"></i></div></div>
     </section>
 
     <section class="reviews-section">
@@ -382,8 +381,11 @@
             <p data-i18n="mod_desc" style="margin-top:10px; margin-bottom: 20px;">Fill in your details to book via WhatsApp.</p>
             
             <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
+                
+                <label class="form-label" data-i18n="mod_name_label">Name Surname</label>
                 <input type="text" id="isim" placeholder="Full Name" data-placeholder="mod_name" required>
                 
+                <label class="form-label" data-i18n="mod_service_label">Service</label>
                 <select id="hizmet" required onchange="checkVIP()">
                     <option value="" disabled selected data-i18n="mod_s_placeholder">Select Service</option>
                     <option value="Erkek Saç & Sakal" data-i18n="mod_s1">Men's Hair & Beard</option>
@@ -394,8 +396,9 @@
                 </select>
 
                 <div id="vipServiceContainer">
+                    <label class="form-label" data-i18n="mod_vip_ask">Which service with transfer?</label>
                     <select id="vipSubHizmet">
-                        <option value="" disabled selected data-i18n="mod_vip_ask">Which service with transfer?</option>
+                        <option value="" disabled selected data-i18n="mod_s_placeholder">Select Service</option>
                         <option value="Erkek Saç & Sakal" data-i18n="mod_s1">Men's Hair & Beard</option>
                         <option value="Kadın Saç Tasarımı" data-i18n="mod_s2">Women's Hair Styling</option>
                         <option value="Protez Tırnak" data-i18n="mod_s3">Prosthetic Nails</option>
@@ -403,10 +406,18 @@
                     </select>
                 </div>
                 
-                <input type="text" id="tarih" placeholder="Select Date" data-placeholder="mod_date" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required>
-                <input type="text" id="saat" placeholder="Select Time" data-placeholder="mod_time" onfocus="(this.type='time')" onblur="if(!this.value)this.type='text'" required>
+                <div style="display:flex; gap:10px;">
+                    <div style="flex:1;">
+                        <label class="form-label" data-i18n="mod_date_label">Date</label>
+                        <input type="date" id="tarih" required style="font-family:inherit;">
+                    </div>
+                    <div style="flex:1;">
+                        <label class="form-label" data-i18n="mod_time_label">Time</label>
+                        <input type="time" id="saat" required style="font-family:inherit;">
+                    </div>
+                </div>
                 
-                <button type="submit" class="btn-whatsapp"><i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i> <span data-i18n="mod_btn">Go to WhatsApp</span></button>
+                <button type="submit" class="btn-whatsapp" style="margin-top:20px;"><i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i> <span data-i18n="mod_btn">Go to WhatsApp</span></button>
             </form>
         </div>
     </div>
@@ -439,7 +450,6 @@
                 srv_5_title: "VIP Transfer Service", srv_5_desc: "Enjoy a hassle-free experience with our pick-up and drop-off service directly from your hotel or home.",
                 
                 srv_detail: "Service Details", 
-                /* Ekstra dolu maddeler EN */
                 srv_1_i1: "Modern Haircut & Styling", srv_1_i2: "Anatomic Beard Design", srv_1_i3: "Hair & Scalp Peeling", srv_1_i4: "Keratin & Hair Care", srv_1_i5: "Men's Skin Care Mask",
                 srv_2_i1: "Custom Cut & Styling", srv_2_i2: "Ombre, Sombre & Balayage", srv_2_i3: "Micro Hair Extensions", srv_2_i4: "Brazilian Blowout", srv_2_i5: "Bridal Hair & Makeup",
                 srv_3_i1: "Gel & Polygel Prosthetic Nails", srv_3_i2: "Permanent Polish", srv_3_i3: "Custom Nail Art Design", srv_3_i4: "Russian Manicure", srv_3_i5: "French & Ombre Nails",
@@ -447,6 +457,7 @@
                 srv_5_i1: "Hotel Pick-up & Drop-off", srv_5_i2: "Luxury & Comfortable Vehicles", srv_5_i3: "Punctual & Safe Travel",
                 
                 gal_title: "Our Gallery", 
+                
                 rev_title: "What Our Clients Say",
                 rev_1_txt: "\"I was in Antalya for holiday. Truly amazing attention and skill. Haircut and beard shave were exactly what I wanted. Highly recommended.\"",
                 rev_2_txt: "\"Went for prosthetic nails and a manicure, the staff was very friendly and the salon was incredibly hygienic. Very happy with the result!\"",
@@ -461,9 +472,10 @@
                 footer_txt: "All rights reserved.",
                 
                 mod_title: "Quick Booking", mod_desc: "Fill in your details to book via WhatsApp.", mod_btn: "Go to WhatsApp",
+                mod_name_label: "Name Surname", mod_service_label: "Service", mod_date_label: "Date", mod_time_label: "Time",
                 mod_name: "Full Name", mod_s_placeholder: "Select Service",
                 mod_s1: "Men's Hair & Beard", mod_s2: "Women's Hair Styling", mod_s3: "Prosthetic Nails", mod_s4: "Manicure & Pedicure", mod_s5: "VIP Transfer Service",
-                mod_vip_ask: "Which service with transfer?", mod_date: "Select Date", mod_time: "Select Time"
+                mod_vip_ask: "Which service with transfer?"
             },
             tr: {
                 nav_about: "Hakkımızda", nav_services: "Hizmetler", nav_gallery: "Galeri", nav_contact: "İletişim", nav_book: "Randevu Al",
@@ -486,7 +498,6 @@
                 srv_5_title: "VIP Transfer Hizmeti<br><span class='sub-en'>VIP Transfer Service</span>", srv_5_desc: "Otelinizden veya evinizden alınıp geri bırakılma ayrıcalığıyla yorulmadan salonumuza ulaşın.<br><span class='sub-en' style='margin-top:8px;'>Enjoy a hassle-free experience with our pick-up and drop-off service.</span>",
                 
                 srv_detail: "Hizmet Detayları / Details", 
-                /* Ekstra dolu maddeler TR */
                 srv_1_i1: "Modern Saç Kesimi", srv_1_i2: "Anatomik Sakal Tasarımı", srv_1_i3: "Saç & Saç Derisi Peelingi", srv_1_i4: "Keratin & Saç Bakımı", srv_1_i5: "Erkek Cilt Bakım Maskesi",
                 srv_2_i1: "Kişiye Özel Kesim & Tasarım", srv_2_i2: "Ombre, Sombre & Balyaj", srv_2_i3: "Mikro Kaynak Uzatma", srv_2_i4: "Brezilya Fönü", srv_2_i5: "Gelin Saçı & Profesyonel Makyaj",
                 srv_3_i1: "Jel & Polijel Protez Tırnak", srv_3_i2: "Kalıcı Oje", srv_3_i3: "Kişiye Özel Nail Art Tasarımı", srv_3_i4: "Rus Manikürü", srv_3_i5: "French & Ombre Tırnak",
@@ -510,9 +521,10 @@
                 footer_txt: "Tüm hakları saklıdır. / All rights reserved.",
                 
                 mod_title: "Hızlı Randevu<br><span class='sub-en'>Quick Booking</span>", mod_desc: "Bilgilerinizi doldurun, randevunuz WhatsApp üzerinden bize ulaşsın.", mod_btn: "WhatsApp'a Git",
+                mod_name_label: "Adınız Soyadınız / Name", mod_service_label: "Hizmet / Service", mod_date_label: "Tarih / Date", mod_time_label: "Saat / Time",
                 mod_name: "Adınız Soyadınız / Full Name", mod_s_placeholder: "Hizmet Seçiniz / Select Service",
                 mod_s1: "Erkek Saç & Sakal / Men's Hair", mod_s2: "Kadın Saç Tasarımı / Women's Hair", mod_s3: "Protez Tırnak / Prosthetic Nails", mod_s4: "Manikür & Pedikür / Mani & Pedi", mod_s5: "VIP Transfer Hizmeti / VIP Transfer",
-                mod_vip_ask: "Hangi hizmet ile birlikte? / Which service with transfer?", mod_date: "Tarih Seçin / Select Date", mod_time: "Saat Seçin / Select Time"
+                mod_vip_ask: "Hangi hizmet ile birlikte? / Which service with transfer?"
             },
             de: {
                 nav_about: "Über uns", nav_services: "Leistungen", nav_gallery: "Galerie", nav_contact: "Kontakt", nav_book: "Buchen",
@@ -545,9 +557,10 @@
                 cont_title: "Kontaktiere uns", cont_addr: "Adresse:", cont_phone: "Telefon:", cont_hours: "Öffnungszeiten:", cont_everyday: "Jeden Tag: 09:00 - 01:00",
                 footer_txt: "Alle Rechte vorbehalten.",
                 mod_title: "Schnelle Buchung", mod_desc: "Füllen Sie Ihre Daten aus, um über WhatsApp zu buchen.", mod_btn: "Zu WhatsApp",
+                mod_name_label: "Vorname Nachname", mod_service_label: "Dienst", mod_date_label: "Datum", mod_time_label: "Zeit",
                 mod_name: "Vollständiger Name", mod_s_placeholder: "Service auswählen",
                 mod_s1: "Herrenhaare & Bart", mod_s2: "Damenfrisuren", mod_s3: "Prothetische Nägel", mod_s4: "Maniküre & Pediküre", mod_s5: "VIP-Transferservice",
-                mod_vip_ask: "Welcher Service mit Transfer?", mod_date: "Datum auswählen", mod_time: "Zeit auswählen"
+                mod_vip_ask: "Welcher Service mit Transfer?"
             },
             ar: {
                 nav_about: "معلومات عنا", nav_services: "خدمات", nav_gallery: "صالة عرض", nav_contact: "اتصال", nav_book: "احجز الآن",
@@ -580,9 +593,10 @@
                 cont_title: "اتصل بنا", cont_addr: "العنوان:", cont_phone: "الهاتف:", cont_hours: "ساعات العمل:", cont_everyday: "كل يوم: 09:00 - 01:00",
                 footer_txt: "كل الحقوق محفوظة.",
                 mod_title: "حجز سريع", mod_desc: "أدخل التفاصيل الخاصة بك للحجز عبر واتساب.", mod_btn: "اذهب إلى واتساب",
+                mod_name_label: "الاسم واللقب", mod_service_label: "خدمة", mod_date_label: "تاريخ", mod_time_label: "وقت",
                 mod_name: "الاسم الكامل", mod_s_placeholder: "حدد الخدمة",
                 mod_s1: "شعر ولحية الرجال", mod_s2: "تصفيف شعر النساء", mod_s3: "أظافر صناعية", mod_s4: "مانيكير وباديكير", mod_s5: "خدمة النقل لكبار الشخصيات",
-                mod_vip_ask: "أي خدمة مع النقل؟", mod_date: "حدد التاريخ", mod_time: "حدد الوقت"
+                mod_vip_ask: "أي خدمة مع النقل؟"
             }
         };
 
@@ -607,7 +621,7 @@
                     element.setAttribute("placeholder", translations[lang][key]);
                 }
             });
-            checkVIP(); // VIP alanı açıksa placeholder'ı günceller
+            checkVIP();
         }
 
         const modal = document.getElementById("randevuModal");
@@ -615,7 +629,6 @@
         function closeModal() { modal.style.display = "none"; }
         window.onclick = function(event) { if (event.target == modal) { modal.style.display = "none"; } }
 
-        // AKILLI VIP TRANSFER KONTROLÜ
         function checkVIP() {
             const hizmetSelect = document.getElementById("hizmet");
             const vipContainer = document.getElementById("vipServiceContainer");
@@ -631,7 +644,6 @@
             }
         }
 
-        // WHATSAPP'A GÖNDERME İŞLEMİ
         function sendToWhatsApp(event) {
             event.preventDefault();
             const lang = document.getElementById("langSwitcher").value;
@@ -643,11 +655,10 @@
             const hizmetSelect = document.getElementById("hizmet");
             let hizmetText = hizmetSelect.options[hizmetSelect.selectedIndex].text; 
             
-            // Eğer VIP seçildiyse, alt hizmeti alıp birleştir
             if(hizmetSelect.value === "VIP Transfer") {
                 const subSelect = document.getElementById("vipSubHizmet");
                 const subText = subSelect.options[subSelect.selectedIndex].text;
-                hizmetText = `${hizmetText} (+ ${subText})`; // Örn: VIP Transfer Service (+ Men's Hair & Beard)
+                hizmetText = `${hizmetText} (+ ${subText})`;
             }
 
             let helloMsg = "Hello By Bekir Hairdresser, I would like to book an appointment.";
