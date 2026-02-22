@@ -2,66 +2,69 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <title>By Bekir Hairdresser | Kuaför & Güzellik</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* GENEL AYARLAR */
-        html { scroll-behavior: smooth; } /* Menülere tıklayınca yumuşak kaydırma sağlar */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f9f9f9; color: #333; line-height: 1.6; overflow-x: hidden; transition: direction 0.3s ease; }
+        /* GENEL VE OPTİMİZASYON AYARLARI */
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; -webkit-tap-highlight-color: transparent; }
+        body { background-color: #f9f9f9; color: #333; line-height: 1.6; overflow-x: hidden; transition: direction 0.3s ease; width: 100%; }
         a { text-decoration: none; color: inherit; }
         
+        /* ÇİFT DİLLİ (BILINGUAL) ALT BAŞLIK KLASI */
+        .sub-en { display: block; font-size: 0.75rem; color: #888; font-weight: 500; margin-top: 4px; letter-spacing: 0.5px; text-transform: none; line-height: 1.3; }
+
         /* NAVBAR & DİL SEÇİCİ */
-        header { background-color: #1a1a1a; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 3px solid #d4af37; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .logo { font-size: 26px; font-weight: bold; letter-spacing: 2px; color: #fff; text-transform: uppercase; text-align: center; }
+        header { background-color: #1a1a1a; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 3px solid #d4af37; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 100%; }
+        .logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; color: #fff; text-transform: uppercase; text-align: center; }
         .logo span { color: #d4af37; }
         .nav-links { display: flex; gap: 20px; color: #fff; align-items: center; }
         .nav-links a { font-weight: 500; transition: color 0.3s; font-size: 0.95rem; }
         .nav-links a:hover { color: #d4af37; }
         
-        /* Dil Seçimi Dropdown */
-        .lang-switch { background: #333; color: #fff; border: 1px solid #d4af37; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-weight: bold; outline: none; }
+        /* Dil Seçimi Dropdown (iOS Optimizasyonlu) */
+        .lang-switch { background: #333; color: #fff; border: 1px solid #d4af37; padding: 6px 12px; border-radius: 5px; cursor: pointer; font-weight: bold; outline: none; font-size: 16px; -webkit-appearance: none; appearance: none; text-align: center; }
         .lang-switch:focus { border-color: #fff; }
 
-        /* BUTONLAR */
-        .btn-whatsapp { background-color: #25D366; color: white; border-radius: 30px; border: none; cursor: pointer; transition: all 0.3s ease; font-weight: bold; padding: 10px 20px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+        /* BUTONLAR (Mobil Tıklama Gecikmesi Giderildi) */
+        .btn-whatsapp { background-color: #25D366; color: white; border-radius: 30px; border: none; cursor: pointer; transition: all 0.3s ease; font-weight: bold; padding: 12px 24px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; touch-action: manipulation; font-size: 16px; }
         .btn-whatsapp:hover { background-color: #1ebe57; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transform: translateY(-2px); }
-        .btn-gold { background-color: #d4af37; color: #1a1a1a; padding: 12px 30px; border-radius: 30px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; text-transform: uppercase; display: inline-flex; justify-content: center; }
+        .btn-gold { background-color: #d4af37; color: #1a1a1a; padding: 12px 30px; border-radius: 30px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; text-transform: uppercase; display: inline-flex; justify-content: center; touch-action: manipulation; font-size: 16px; }
         .btn-gold:hover { background-color: #1a1a1a; color: #d4af37; border: 1px solid #d4af37; }
 
         /* HERO (KARŞILAMA EKRANI) */
-        .hero { min-height: 80vh; padding: 100px 20px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; }
-        .hero h1 { font-size: 4rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .hero { min-height: 80vh; padding: 100px 20px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; width: 100%; }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
         .hero h1 span { color: #d4af37; }
-        .hero p { font-size: 1.4rem; margin-bottom: 30px; font-style: italic; max-width: 600px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
-        .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .hero p { font-size: clamp(1.1rem, 3vw, 1.4rem); margin-bottom: 30px; font-style: italic; max-width: 600px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+        .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; width: 100%; }
 
         /* BÖLÜM BAŞLIKLARI */
-        .section-title { text-align: center; margin: 80px 0 20px; font-size: 2.5rem; color: #1a1a1a; text-transform: uppercase; letter-spacing: 1px; padding: 0 15px; }
+        .section-title { text-align: center; margin: 80px 0 20px; font-size: clamp(2rem, 4vw, 2.5rem); color: #1a1a1a; text-transform: uppercase; letter-spacing: 1px; padding: 0 15px; }
         .section-subtitle { text-align: center; color: #777; margin-bottom: 50px; font-size: 1.1rem; padding: 0 15px; }
         .section-title::after { content: ''; display: block; width: 80px; height: 3px; background: #d4af37; margin: 15px auto 0; }
 
         /* HAKKIMIZDA & NEDEN BİZ */
-        .about-section { display: flex; flex-wrap: wrap; padding: 0 5%; margin: 50px 0; align-items: center; gap: 40px; }
+        .about-section { display: flex; flex-wrap: wrap; padding: 0 5%; margin: 50px auto; align-items: center; gap: 40px; max-width: 1400px; }
         .about-text { flex: 1; min-width: 300px; }
         .about-text h3 { font-size: 2rem; color: #d4af37; margin-bottom: 20px; }
         .about-text p { margin-bottom: 15px; font-size: 1.1rem; color: #555; text-align: justify; }
         .features-grid { flex: 1; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; width: 100%; }
         .feature-box { background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; border-bottom: 3px solid #d4af37; transition: 0.3s; }
-        .feature-box:hover { transform: translateY(-5px); }
         .feature-box i { font-size: 2rem; color: #1a1a1a; margin-bottom: 10px; }
         .feature-box h4 { margin-bottom: 5px; color: #1a1a1a; }
 
         /* HİZMETLER KARTLARI */
-        .services-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 0 5%; margin-bottom: 50px; }
-        .service-card { background: #fff; width: 100%; max-width: 340px; padding: 40px 25px; text-align: center; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); transition: transform 0.3s; border-bottom: 4px solid transparent; display: flex; flex-direction: column; }
+        .services-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 0 5%; margin: 0 auto 50px; max-width: 1400px; }
+        .service-card { background: #fff; width: 100%; padding: 40px 25px; text-align: center; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); transition: transform 0.3s; border-bottom: 4px solid transparent; display: flex; flex-direction: column; }
         .service-card:hover { transform: translateY(-10px); border-bottom: 4px solid #d4af37; }
         .service-icon { font-size: 2.8rem; color: #d4af37; margin-bottom: 15px; }
         .service-card h3 { font-size: 1.5rem; color: #1a1a1a; margin-bottom: 15px; }
         .service-card p { color: #555; font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
         .service-details { text-align: left; background: #fdfdfd; border: 1px solid #eee; border-radius: 5px; padding: 10px; margin-top: auto; }
-        .service-details summary { font-weight: 600; cursor: pointer; color: #1a1a1a; list-style: none; display: flex; justify-content: space-between; align-items: center; outline: none; font-size: 0.95rem; padding: 5px; }
+        .service-details summary { font-weight: 600; cursor: pointer; color: #1a1a1a; list-style: none; display: flex; justify-content: space-between; align-items: center; outline: none; font-size: 0.95rem; padding: 5px; touch-action: manipulation; }
         .service-details summary::-webkit-details-marker { display: none; }
         .service-details summary::after { content: '\f078'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #d4af37; transition: transform 0.3s ease; font-size: 0.8rem; }
         .service-details[open] summary::after { transform: rotate(180deg); }
@@ -69,7 +72,7 @@
         .service-details li { margin-bottom: 8px; border-bottom: 1px dashed #eee; padding-bottom: 5px; }
 
         /* GALERİ */
-        .gallery-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; padding: 0 5%; margin-bottom: 80px; }
+        .gallery-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; padding: 0 5%; margin: 0 auto 80px; max-width: 1400px; }
         .gallery-item { height: 250px; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); position: relative; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .gallery-item:hover img { transform: scale(1.1); }
@@ -77,60 +80,57 @@
         .gallery-item:hover .gallery-overlay { opacity: 1; }
 
         /* YORUMLAR */
-        .reviews-section { background: #1a1a1a; color: #fff; padding: 80px 5%; text-align: center; }
+        .reviews-section { background: #1a1a1a; color: #fff; padding: 80px 5%; text-align: center; width: 100%; }
         .reviews-section .section-title { color: #fff; margin-top: 0; }
-        .reviews-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; }
-        .review-card { background: #222; width: 100%; max-width: 340px; padding: 30px; border-radius: 10px; border-top: 3px solid #d4af37; position: relative; text-align: left; }
+        .reviews-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 40px auto 0; max-width: 1400px; }
+        .review-card { background: #222; width: 100%; padding: 30px; border-radius: 10px; border-top: 3px solid #d4af37; position: relative; text-align: left; }
         .review-card i { color: #d4af37; font-size: 1.5rem; margin-bottom: 15px; }
         .review-text { font-style: italic; color: #ccc; margin-bottom: 20px; font-size: 0.95rem; }
         .review-author { font-weight: bold; color: #fff; }
 
         /* SIKÇA SORULAN SORULAR */
-        .faq-container { max-width: 800px; margin: 0 auto 80px; padding: 0 20px; }
+        .faq-container { max-width: 800px; margin: 0 auto 80px; padding: 0 5%; width: 100%; }
         .faq-item { background: #fff; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); overflow: hidden; }
-        .faq-item summary { padding: 20px; font-weight: bold; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; color: #1a1a1a; }
+        .faq-item summary { padding: 20px; font-weight: bold; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; color: #1a1a1a; touch-action: manipulation; }
         .faq-item summary::-webkit-details-marker { display: none; }
         .faq-item summary::after { content: '\002B'; font-size: 1.5rem; color: #d4af37; font-weight: bold; transition: 0.3s; }
         .faq-item[open] summary::after { content: '\2212'; transform: rotate(180deg); }
         .faq-item p { padding: 0 20px 20px; color: #666; font-size: 0.95rem; border-top: 1px solid #eee; margin-top: 10px; padding-top: 15px; }
 
         /* İLETİŞİM & HARİTA */
-        .contact-section { display: flex; flex-wrap: wrap; padding: 0; background-color: #f1f1f1; }
+        .contact-section { display: flex; flex-wrap: wrap; padding: 0; background-color: #f1f1f1; width: 100%; }
         .contact-info { flex: 1; min-width: 300px; padding: 60px 5%; background: #1a1a1a; color: #fff; }
         .contact-info h3 { color: #d4af37; margin-bottom: 30px; font-size: 2rem; }
         .info-item { display: flex; align-items: flex-start; margin-bottom: 25px; font-size: 1.1rem; }
         .info-item i { color: #d4af37; font-size: 1.5rem; margin-right: 15px; margin-top: 5px; }
-        .map-container { flex: 1.5; min-width: 300px; min-height: 400px; }
-        iframe { width: 100%; height: 100%; border: 0; }
+        .map-container { flex: 1.5; min-width: 300px; min-height: 400px; width: 100%; }
+        iframe { width: 100%; height: 100%; min-height: 400px; border: 0; display: block; }
 
         /* FOOTER */
-        footer { background: #000; color: #777; text-align: center; padding: 20px; font-size: 0.9rem; }
+        footer { background: #000; color: #777; text-align: center; padding: 20px; font-size: 0.9rem; width: 100%; }
         footer span { color: #d4af37; }
 
-        /* WHATSAPP MODAL */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center; backdrop-filter: blur(5px); }
-        .modal-content { background-color: #fff; padding: 40px 20px; border-radius: 15px; width: 95%; max-width: 450px; text-align: center; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
-        .close-btn { position: absolute; top: 10px; right: 20px; font-size: 32px; cursor: pointer; color: #333; transition: color 0.3s; }
+        /* WHATSAPP MODAL (iOS Form Optimizasyonu) */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center; backdrop-filter: blur(5px); padding: 15px; }
+        .modal-content { background-color: #fff; padding: 40px 20px; border-radius: 15px; width: 100%; max-width: 450px; text-align: center; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        .close-btn { position: absolute; top: 10px; right: 20px; font-size: 32px; cursor: pointer; color: #333; transition: color 0.3s; touch-action: manipulation; }
         .close-btn:hover { color: #d4af37; }
-        .modal input, .modal select { width: 100%; padding: 15px; margin: 10px 0; background: #f5f5f5; border: 1px solid #ddd; color: #333; border-radius: 8px; font-size: 1rem; }
+        .modal input, .modal select { width: 100%; padding: 15px; margin: 10px 0; background: #f5f5f5; border: 1px solid #ddd; color: #333; border-radius: 8px; font-size: 16px; /* 16px iOS'ta otomatik zoomu engeller */ -webkit-appearance: none; appearance: none; }
         .modal input:focus, .modal select:focus { outline: none; border-color: #d4af37; background: #fff; }
+        .modal select { background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); background-repeat: no-repeat; background-position-x: 95%; background-position-y: 50%; }
         .modal button { width: 100%; margin-top: 15px; font-size: 1.1rem; padding: 15px; justify-content: center; }
 
-        /* 📱 MOBİL UYUM */
+        /* 📱 %100 MOBİL (RESPONSIVE) AYARLARI 📱 */
         @media (max-width: 768px) {
             header { flex-direction: column; padding: 15px; gap: 15px; }
-            .nav-links { flex-wrap: wrap; justify-content: center; gap: 12px; font-size: 0.9rem; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 12px; font-size: 0.9rem; width: 100%; }
             .hero { min-height: 60vh; padding: 50px 15px; }
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1.1rem; }
-            .hero-buttons { flex-direction: column; width: 100%; padding: 0 20px; }
+            .hero-buttons { flex-direction: column; width: 100%; }
             .hero-buttons button { width: 100%; }
-            .section-title { font-size: 2rem; margin: 50px 0 15px; }
+            .section-title { margin: 50px 0 15px; }
             .section-subtitle { margin-bottom: 30px; }
             .features-grid { grid-template-columns: 1fr; }
-            .services-container, .reviews-container, .gallery-container { padding: 0 15px; gap: 20px; }
             .contact-info { padding: 40px 20px; }
-            .map-container { min-height: 300px; }
         }
     </style>
 </head>
@@ -157,91 +157,94 @@
 
     <section class="hero" id="tepe">
         <h1 data-i18n="hero_title">Kusursuz Görünümün <span>Yeni Adresi</span></h1>
-        <p data-i18n="hero_desc">Antalya Kemerağzı'nda Premium Kuaför & Güzellik Salonu</p>
+        <p data-i18n="hero_desc">Antalya Kemerağzı'nda Premium Kuaför & Güzellik Salonu<br><span class="sub-en" style="color:#ddd;">Premium Hair & Beauty Salon in Antalya</span></p>
         <div class="hero-buttons">
-            <button class="btn-whatsapp" onclick="openModal()" style="font-size: 1.1rem; padding: 15px 35px;"><i class="fab fa-whatsapp"></i> <span data-i18n="hero_btn1">Hızlı Randevu Al</span></button>
+            <button class="btn-whatsapp" onclick="openModal()"><i class="fab fa-whatsapp"></i> <span data-i18n="hero_btn1">Hızlı Randevu Al</span></button>
             <a href="#hizmetler"><button class="btn-gold" data-i18n="hero_btn2">Hizmetleri İncele</button></a>
         </div>
     </section>
 
     <section class="about-section" id="hakkimizda">
         <div class="about-text">
-            <h3 data-i18n="about_title">Neden By Bekir Hairdresser?</h3>
+            <h3 data-i18n="about_title">Neden By Bekir Hairdresser?<br><span class="sub-en" style="color:#b5952f;">Why By Bekir Hairdresser?</span></h3>
             <p data-i18n="about_p1">Antalya Kemerağzı'nda, sektördeki yılların verdiği tecrübe ile siz değerli müşterilerimize en üst düzey kuaför ve güzellik hizmetini sunuyoruz. Amacımız sadece saçınızı kesmek değil, tarzınızı ve özgüveninizi yeniden yaratmaktır.</p>
             <p data-i18n="about_p2">Erkek ve kadın bölümlerimizde, alanında uzman kadromuz, dünyaca ünlü premium ürünler ve %100 hijyen standartlarımız ile kendinizi özel hissedeceğiniz bir deneyim vaat ediyoruz.</p>
         </div>
         <div class="features-grid">
             <div class="feature-box">
                 <i class="fas fa-user-check"></i>
-                <h4 data-i18n="feat_1">Uzman Kadro</h4>
+                <h4 data-i18n="feat_1">Uzman Kadro<br><span class="sub-en">Expert Staff</span></h4>
             </div>
             <div class="feature-box">
                 <i class="fas fa-spray-can"></i>
-                <h4 data-i18n="feat_2">Premium Ürünler</h4>
+                <h4 data-i18n="feat_2">Premium Ürünler<br><span class="sub-en">Premium Products</span></h4>
             </div>
             <div class="feature-box">
                 <i class="fas fa-pump-medical"></i>
-                <h4 data-i18n="feat_3">%100 Hijyen</h4>
+                <h4 data-i18n="feat_3">%100 Hijyen<br><span class="sub-en">100% Hygiene</span></h4>
             </div>
             <div class="feature-box">
                 <i class="fas fa-moon"></i>
-                <h4 data-i18n="feat_4">Gece 01:00'a Kadar</h4>
+                <h4 data-i18n="feat_4">Gece 01:00'a Kadar<br><span class="sub-en">Open till 01:00 AM</span></h4>
             </div>
         </div>
     </section>
 
-    <h2 class="section-title" data-i18n="srv_main_title" id="hizmetler">Hizmetlerimiz</h2>
-    <p class="section-subtitle" data-i18n="srv_main_sub">Profesyonel Dokunuşlar</p>
+    <h2 class="section-title" data-i18n="srv_main_title" id="hizmetler">Hizmetlerimiz<br><span class="sub-en" style="font-size: 0.5em; letter-spacing: normal;">Our Services</span></h2>
+    <p class="section-subtitle" data-i18n="srv_main_sub">Profesyonel Dokunuşlar / Professional Touches</p>
     <section class="services-container">
+        
         <div class="service-card">
             <i class="fas fa-user-tie service-icon"></i>
-            <h3 data-i18n="srv_1_title">Erkek Saç & Sakal</h3>
-            <p data-i18n="srv_1_desc">Tarzınızı keskin hatlarla belirleyin. Modern kesimler ve anatomik sakal tasarımı.</p>
+            <h3 data-i18n="srv_1_title">Erkek Saç & Sakal<br><span class="sub-en">Men's Hair & Beard</span></h3>
+            <p data-i18n="srv_1_desc">Tarzınızı keskin hatlarla belirleyin. Modern kesimler ve anatomik sakal tasarımı.<br><span class="sub-en" style="margin-top:8px;">Define your style with sharp lines. Modern haircuts and beard styling.</span></p>
             <details class="service-details">
-                <summary data-i18n="srv_detail">Hizmet Detayları</summary>
+                <summary data-i18n="srv_detail">Hizmet Detayları / Details</summary>
                 <ul><li data-i18n="srv_1_i1">Modern Saç Kesimi</li><li data-i18n="srv_1_i2">Sakal Tasarımı</li><li data-i18n="srv_1_i3">Cilt Bakımı</li></ul>
             </details>
         </div>
+
         <div class="service-card">
             <i class="fas fa-cut service-icon"></i>
-            <h3 data-i18n="srv_2_title">Kadın Saç Tasarımı</h3>
-            <p data-i18n="srv_2_desc">Yüz hatlarınızı kusursuzlaştıran sihirli dokunuşlar ve renk uzmanlığı.</p>
+            <h3 data-i18n="srv_2_title">Kadın Saç Tasarımı<br><span class="sub-en">Women's Hair Styling</span></h3>
+            <p data-i18n="srv_2_desc">Yüz hatlarınızı kusursuzlaştıran sihirli dokunuşlar ve renk uzmanlığı.<br><span class="sub-en" style="margin-top:8px;">Magical touches that perfect your facial features and color expertise.</span></p>
             <details class="service-details">
-                <summary data-i18n="srv_detail">Hizmet Detayları</summary>
+                <summary data-i18n="srv_detail">Hizmet Detayları / Details</summary>
                 <ul><li data-i18n="srv_2_i1">Kesim & Tasarım</li><li data-i18n="srv_2_i2">Boya, Ombre & Röfle</li><li data-i18n="srv_2_i3">Gelin Saçı & Fön</li></ul>
             </details>
         </div>
+
         <div class="service-card">
             <i class="fas fa-hand-sparkles service-icon"></i>
-            <h3 data-i18n="srv_3_title">Protez Tırnak</h3>
-            <p data-i18n="srv_3_desc">Göz alıcı tasarımlar ve kalıcı oje ile elleriniz her zaman ön planda.</p>
+            <h3 data-i18n="srv_3_title">Protez Tırnak<br><span class="sub-en">Prosthetic Nails</span></h3>
+            <p data-i18n="srv_3_desc">Göz alıcı tasarımlar ve kalıcı oje ile elleriniz her zaman ön planda.<br><span class="sub-en" style="margin-top:8px;">Keep your hands in the spotlight with eye-catching designs and polish.</span></p>
             <details class="service-details">
-                <summary data-i18n="srv_detail">Hizmet Detayları</summary>
+                <summary data-i18n="srv_detail">Hizmet Detayları / Details</summary>
                 <ul><li data-i18n="srv_3_i1">Jel Protez Tırnak</li><li data-i18n="srv_3_i2">Kalıcı Oje</li><li data-i18n="srv_3_i3">Kişiye Özel Nail Art</li></ul>
             </details>
         </div>
+
         <div class="service-card">
             <i class="fas fa-spa service-icon"></i>
-            <h3 data-i18n="srv_4_title">Manikür & Pedikür</h3>
-            <p data-i18n="srv_4_desc">Hijyenik VIP SPA bakımı ile pamuk gibi bir cilde ve temiz bir görünüme kavuşun.</p>
+            <h3 data-i18n="srv_4_title">Manikür & Pedikür<br><span class="sub-en">Manicure & Pedicure</span></h3>
+            <p data-i18n="srv_4_desc">Hijyenik VIP SPA bakımı ile pamuk gibi bir cilde ve temiz bir görünüme kavuşun.<br><span class="sub-en" style="margin-top:8px;">Achieve soft skin and a clean look with our hygienic VIP SPA care.</span></p>
             <details class="service-details">
-                <summary data-i18n="srv_detail">Hizmet Detayları</summary>
+                <summary data-i18n="srv_detail">Hizmet Detayları / Details</summary>
                 <ul><li data-i18n="srv_4_i1">Klasik Manikür</li><li data-i18n="srv_4_i2">Medikal Pedikür</li><li data-i18n="srv_4_i3">Nasır & Topuk Tedavisi</li></ul>
             </details>
         </div>
     </section>
 
-    <h2 class="section-title" id="galeri" data-i18n="gal_title">Salonumuzdan Kareler</h2>
+    <h2 class="section-title" id="galeri" data-i18n="gal_title">Salonumuzdan Kareler<br><span class="sub-en" style="font-size: 0.5em; letter-spacing: normal;">Our Gallery</span></h2>
     <section class="gallery-container">
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1521590832167-7bfc17484d20?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Kuaför"><div class="gallery-overlay"><i class="fab fa-instagram"></i></div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Erkek"><div class="gallery-overlay"><i class="fab fa-instagram"></i></div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Tırnak"><div class="gallery-overlay"><i class="fab fa-instagram"></i></div></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516975080661-46bba2d6ce30?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Bakım"><div class="gallery-overlay"><i class="fab fa-instagram"></i></div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1521590832167-7bfc17484d20?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Kuaför" loading="lazy"><div class="gallery-overlay"><i class="fab fa-instagram"></i></div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Erkek" loading="lazy"><div class="gallery-overlay"><i class="fab fa-instagram"></i></div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Tırnak" loading="lazy"><div class="gallery-overlay"><i class="fab fa-instagram"></i></div></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516975080661-46bba2d6ce30?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Bakım" loading="lazy"><div class="gallery-overlay"><i class="fab fa-instagram"></i></div></div>
     </section>
 
     <section class="reviews-section">
-        <h2 class="section-title" data-i18n="rev_title">Müşterilerimiz Ne Diyor?</h2>
-        <p class="section-subtitle" style="color:#aaa;" data-i18n="rev_sub">Client Testimonials</p>
+        <h2 class="section-title" data-i18n="rev_title">Müşterilerimiz Ne Diyor?<br><span class="sub-en" style="font-size: 0.5em; letter-spacing: normal; color: #ddd;">What Our Clients Say</span></h2>
         <div class="reviews-container">
             <div class="review-card">
                 <i class="fas fa-quote-left"></i>
@@ -261,29 +264,28 @@
         </div>
     </section>
 
-    <h2 class="section-title" data-i18n="faq_title" style="margin-top: 80px;">Sıkça Sorulan Sorular</h2>
-    <p class="section-subtitle" data-i18n="faq_sub">Frequently Asked Questions</p>
+    <h2 class="section-title" data-i18n="faq_title" style="margin-top: 80px;">Sıkça Sorulan Sorular<br><span class="sub-en" style="font-size: 0.5em; letter-spacing: normal;">Frequently Asked Questions</span></h2>
     <section class="faq-container">
         <details class="faq-item">
-            <summary data-i18n="faq_1_q">Randevusuz gelebilir miyim?</summary>
+            <summary data-i18n="faq_1_q">Randevusuz gelebilir miyim? / Can I walk in?</summary>
             <p data-i18n="faq_1_a">Müsaitlik durumuna göre yardımcı olmaya çalışıyoruz, ancak bekleme yaşamamanız ve en iyi hizmeti alabilmeniz için mutlaka WhatsApp üzerinden randevu oluşturmanızı tavsiye ederiz.</p>
         </details>
         <details class="faq-item">
-            <summary data-i18n="faq_2_q">Çalışma saatleriniz nelerdir?</summary>
+            <summary data-i18n="faq_2_q">Çalışma saatleriniz nelerdir? / Working hours?</summary>
             <p data-i18n="faq_2_a">Haftanın her günü, sabah 09:00'dan gece 01:00'a kadar siz değerli müşterilerimize kesintisiz hizmet vermekteyiz.</p>
         </details>
         <details class="faq-item">
-            <summary data-i18n="faq_3_q">Hangi marka ürünler kullanıyorsunuz?</summary>
+            <summary data-i18n="faq_3_q">Hangi marka ürünler kullanıyorsunuz? / Brands?</summary>
             <p data-i18n="faq_3_a">Saç ve cilt sağlığınızı önemsediğimiz için sektörün önde gelen, onaylı ve premium markaları ile çalışmaktayız.</p>
         </details>
     </section>
 
     <section class="contact-section" id="iletisim">
         <div class="contact-info">
-            <h3 data-i18n="cont_title">Bize Ulaşın</h3>
-            <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><strong data-i18n="cont_addr">Adres:</strong><br>Kemerağzı, Tesisler Caddesi<br>07112 Aksu / Antalya</div></div>
-            <div class="info-item"><i class="fas fa-phone-alt"></i><div><strong data-i18n="cont_phone">Telefon:</strong><br>+90 530 717 41 21</div></div>
-            <div class="info-item"><i class="far fa-clock"></i><div><strong data-i18n="cont_hours">Çalışma Saatleri:</strong><br><span data-i18n="cont_everyday">Her Gün: 09:00 - 01:00</span></div></div>
+            <h3 data-i18n="cont_title">Bize Ulaşın<br><span class="sub-en" style="color: #b5952f;">Contact Us</span></h3>
+            <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><strong data-i18n="cont_addr">Adres / Address:</strong><br>Kemerağzı, Tesisler Caddesi<br>07112 Aksu / Antalya</div></div>
+            <div class="info-item"><i class="fas fa-phone-alt"></i><div><strong data-i18n="cont_phone">Telefon / Phone:</strong><br>+90 530 717 41 21</div></div>
+            <div class="info-item"><i class="far fa-clock"></i><div><strong data-i18n="cont_hours">Çalışma Saatleri / Hours:</strong><br><span data-i18n="cont_everyday">Her Gün (Everyday): 09:00 - 01:00</span></div></div>
         </div>
         
         <div class="map-container">
@@ -292,21 +294,21 @@
     </section>
 
     <footer>
-        <p>© 2024 <span>By Bekir Hairdresser</span>. <span data-i18n="footer_txt">Tüm hakları saklıdır.</span></p>
+        <p>© 2024 <span>By Bekir Hairdresser</span>. <span data-i18n="footer_txt">Tüm hakları saklıdır. / All rights reserved.</span></p>
     </footer>
 
     <div class="modal" id="randevuModal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">×</span>
-            <h2 data-i18n="mod_title" style="margin-top:10px;">Hızlı Randevu</h2>
-            <p data-i18n="mod_desc">Bilgilerinizi doldurun, randevunuz WhatsApp üzerinden bize ulaşsın.</p>
+            <h2 data-i18n="mod_title" style="margin-top:10px;">Hızlı Randevu<br><span class="sub-en">Quick Booking</span></h2>
+            <p data-i18n="mod_desc" style="margin-top:10px; margin-bottom: 20px;">Bilgilerinizi doldurun, randevunuz WhatsApp üzerinden bize ulaşsın.</p>
             <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
-                <input type="text" id="isim" placeholder="Adınız Soyadınız" data-placeholder="mod_name" required>
+                <input type="text" id="isim" placeholder="Adınız Soyadınız / Full Name" data-placeholder="mod_name" required>
                 <select id="hizmet" required>
-                    <option value="Erkek Saç & Sakal" data-i18n="mod_s1">Erkek Saç & Sakal</option>
-                    <option value="Kadın Saç Tasarımı" data-i18n="mod_s2">Kadın Saç Tasarımı</option>
-                    <option value="Protez Tırnak" data-i18n="mod_s3">Protez Tırnak</option>
-                    <option value="Manikür Pedikür" data-i18n="mod_s4">Manikür & Pedikür</option>
+                    <option value="Erkek Saç & Sakal" data-i18n="mod_s1">Erkek Saç & Sakal / Men's Hair</option>
+                    <option value="Kadın Saç Tasarımı" data-i18n="mod_s2">Kadın Saç Tasarımı / Women's Hair</option>
+                    <option value="Protez Tırnak" data-i18n="mod_s3">Protez Tırnak / Prosthetic Nails</option>
+                    <option value="Manikür Pedikür" data-i18n="mod_s4">Manikür & Pedikür / Mani & Pedi</option>
                 </select>
                 <input type="date" id="tarih" required>
                 <input type="time" id="saat" required>
@@ -316,43 +318,52 @@
     </div>
 
     <script>
-        // Sayfa yüklendiğinde kesin olarak en tepeye sar (URL'de hashtag yoksa)
-        window.onload = function() {
-            if (!window.location.hash) {
-                window.scrollTo(0, 0);
-            }
-        };
+        // Sayfa yenilendiğinde ortadan başlamayı engeller
+        if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+        window.scrollTo(0, 0);
 
         const translations = {
             tr: {
                 nav_about: "Hakkımızda", nav_services: "Hizmetler", nav_gallery: "Galeri", nav_contact: "İletişim", nav_book: "Randevu Al",
-                hero_title: "Kusursuz Görünümün <span>Yeni Adresi</span>", hero_desc: "Antalya Kemerağzı'nda Premium Kuaför & Güzellik Salonu",
+                hero_title: "Kusursuz Görünümün <span>Yeni Adresi</span>", 
+                hero_desc: "Antalya Kemerağzı'nda Premium Kuaför & Güzellik Salonu<br><span class='sub-en' style='color:#ddd;'>Premium Hair & Beauty Salon in Antalya</span>",
                 hero_btn1: "Hızlı Randevu Al", hero_btn2: "Hizmetleri İncele",
-                about_title: "Neden By Bekir Hairdresser?", about_p1: "Antalya Kemerağzı'nda tecrübemizle en üst düzey kuaför ve güzellik hizmetini sunuyoruz. Amacımız tarzınızı ve özgüveninizi yeniden yaratmaktır.", about_p2: "Uzman kadromuz, premium ürünler ve %100 hijyen standartlarımız ile kendinizi özel hissedeceğiniz bir deneyim vaat ediyoruz.",
-                feat_1: "Uzman Kadro", feat_2: "Premium Ürünler", feat_3: "%100 Hijyen", feat_4: "Gece 01:00'a Kadar",
-                srv_main_title: "Hizmetlerimiz", srv_main_sub: "Profesyonel Dokunuşlar",
-                srv_1_title: "Erkek Saç & Sakal", srv_1_desc: "Tarzınızı keskin hatlarla belirleyin. Modern kesimler ve anatomik sakal tasarımı.",
-                srv_2_title: "Kadın Saç Tasarımı", srv_2_desc: "Yüz hatlarınızı kusursuzlaştıran sihirli dokunuşlar ve renk uzmanlığı.",
-                srv_3_title: "Protez Tırnak", srv_3_desc: "Göz alıcı tasarımlar ve kalıcı oje ile elleriniz her zaman ön planda.",
-                srv_4_title: "Manikür & Pedikür", srv_4_desc: "Hijyenik VIP SPA bakımı ile pamuk gibi bir cilde ve temiz bir görünüme kavuşun.",
-                srv_detail: "Hizmet Detayları", 
+                
+                about_title: "Neden By Bekir Hairdresser?<br><span class='sub-en' style='color:#b5952f;'>Why By Bekir Hairdresser?</span>", 
+                about_p1: "Antalya Kemerağzı'nda, sektördeki yılların verdiği tecrübe ile siz değerli müşterilerimize en üst düzey kuaför ve güzellik hizmetini sunuyoruz. Amacımız sadece saçınızı kesmek değil, tarzınızı ve özgüveninizi yeniden yaratmaktır.", 
+                about_p2: "Erkek ve kadın bölümlerimizde, alanında uzman kadromuz, dünyaca ünlü premium ürünler ve %100 hijyen standartlarımız ile kendinizi özel hissedeceğiniz bir deneyim vaat ediyoruz.",
+                feat_1: "Uzman Kadro<br><span class='sub-en'>Expert Staff</span>", feat_2: "Premium Ürünler<br><span class='sub-en'>Premium Products</span>", feat_3: "%100 Hijyen<br><span class='sub-en'>100% Hygiene</span>", feat_4: "Gece 01:00'a Kadar<br><span class='sub-en'>Open till 01:00 AM</span>",
+                
+                srv_main_title: "Hizmetlerimiz<br><span class='sub-en' style='font-size: 0.5em; letter-spacing: normal;'>Our Services</span>", srv_main_sub: "Profesyonel Dokunuşlar / Professional Touches",
+                srv_1_title: "Erkek Saç & Sakal<br><span class='sub-en'>Men's Hair & Beard</span>", srv_1_desc: "Tarzınızı keskin hatlarla belirleyin. Modern kesimler ve anatomik sakal tasarımı.<br><span class='sub-en' style='margin-top:8px;'>Define your style with sharp lines. Modern haircuts and beard styling.</span>",
+                srv_2_title: "Kadın Saç Tasarımı<br><span class='sub-en'>Women's Hair Styling</span>", srv_2_desc: "Yüz hatlarınızı kusursuzlaştıran sihirli dokunuşlar ve renk uzmanlığı.<br><span class='sub-en' style='margin-top:8px;'>Magical touches that perfect your facial features and color expertise.</span>",
+                srv_3_title: "Protez Tırnak<br><span class='sub-en'>Prosthetic Nails</span>", srv_3_desc: "Göz alıcı tasarımlar ve kalıcı oje ile elleriniz her zaman ön planda.<br><span class='sub-en' style='margin-top:8px;'>Keep your hands in the spotlight with eye-catching designs and polish.</span>",
+                srv_4_title: "Manikür & Pedikür<br><span class='sub-en'>Manicure & Pedicure</span>", srv_4_desc: "Hijyenik VIP SPA bakımı ile pamuk gibi bir cilde ve temiz bir görünüme kavuşun.<br><span class='sub-en' style='margin-top:8px;'>Achieve soft skin and a clean look with our hygienic VIP SPA care.</span>",
+                
+                srv_detail: "Hizmet Detayları / Details", 
                 srv_1_i1: "Modern Saç Kesimi", srv_1_i2: "Sakal Tasarımı", srv_1_i3: "Cilt Bakımı",
                 srv_2_i1: "Kesim & Tasarım", srv_2_i2: "Boya, Ombre & Röfle", srv_2_i3: "Gelin Saçı & Fön",
                 srv_3_i1: "Jel Protez Tırnak", srv_3_i2: "Kalıcı Oje", srv_3_i3: "Kişiye Özel Nail Art",
                 srv_4_i1: "Klasik Manikür", srv_4_i2: "Medikal Pedikür", srv_4_i3: "Nasır & Topuk Tedavisi",
-                gal_title: "Salonumuzdan Kareler", 
-                rev_title: "Müşterilerimiz Ne Diyor?", rev_sub: "Yorumlar",
+                
+                gal_title: "Salonumuzdan Kareler<br><span class='sub-en' style='font-size: 0.5em; letter-spacing: normal;'>Our Gallery</span>", 
+                
+                rev_title: "Müşterilerimiz Ne Diyor?<br><span class='sub-en' style='font-size: 0.5em; letter-spacing: normal; color: #ddd;'>What Our Clients Say</span>",
                 rev_1_txt: "\"Tatil için Antalya'daydım. Gerçekten muazzam bir ilgi ve ustalık. Saç kesimi ve sakal tıraşı tam istediğim gibi oldu. Şiddetle tavsiye ederim.\"",
                 rev_2_txt: "\"Protez tırnak ve manikür için gittim, çalışanlar çok güler yüzlü ve salon inanılmaz hijyenikti. Sonuçtan çok memnun kaldım, ellerinize sağlık!\"",
                 rev_3_txt: "\"Gece 1'e kadar açık olmaları büyük avantaj. İş çıkışı rahat rahat gidip saç bakımımı yaptırdım. Kesinlikle favori mekanım.\"",
-                faq_title: "Sıkça Sorulan Sorular", faq_sub: "Merak Edilenler",
-                faq_1_q: "Randevusuz gelebilir miyim?", faq_1_a: "Müsaitlik durumuna göre yardımcı olmaya çalışıyoruz, ancak bekleme yaşamamanız için mutlaka WhatsApp üzerinden randevu oluşturmanızı tavsiye ederiz.",
-                faq_2_q: "Çalışma saatleriniz nelerdir?", faq_2_a: "Haftanın her günü, sabah 09:00'dan gece 01:00'a kadar siz değerli müşterilerimize kesintisiz hizmet vermekteyiz.",
-                faq_3_q: "Hangi marka ürünler kullanıyorsunuz?", faq_3_a: "Saç ve cilt sağlığınızı önemsediğimiz için sektörün önde gelen, onaylı ve premium markaları ile çalışmaktayız.",
-                cont_title: "Bize Ulaşın", cont_addr: "Adres:", cont_phone: "Telefon:", cont_hours: "Çalışma Saatleri:", cont_everyday: "Her Gün: 09:00 - 01:00",
-                footer_txt: "Tüm hakları saklıdır.",
-                mod_title: "Hızlı Randevu", mod_desc: "Bilgilerinizi doldurun, randevunuz WhatsApp üzerinden bize ulaşsın.", mod_btn: "WhatsApp'a Git",
-                mod_name: "Adınız Soyadınız", mod_s1: "Erkek Saç & Sakal", mod_s2: "Kadın Saç Tasarımı", mod_s3: "Protez Tırnak", mod_s4: "Manikür & Pedikür"
+                
+                faq_title: "Sıkça Sorulan Sorular<br><span class='sub-en' style='font-size: 0.5em; letter-spacing: normal;'>Frequently Asked Questions</span>",
+                faq_1_q: "Randevusuz gelebilir miyim? / Can I walk in?", faq_1_a: "Müsaitlik durumuna göre yardımcı olmaya çalışıyoruz, ancak bekleme yaşamamanız için mutlaka WhatsApp üzerinden randevu oluşturmanızı tavsiye ederiz.",
+                faq_2_q: "Çalışma saatleriniz nelerdir? / Working hours?", faq_2_a: "Haftanın her günü, sabah 09:00'dan gece 01:00'a kadar siz değerli müşterilerimize kesintisiz hizmet vermekteyiz.",
+                faq_3_q: "Hangi marka ürünler kullanıyorsunuz? / Brands?", faq_3_a: "Saç ve cilt sağlığınızı önemsediğimiz için sektörün önde gelen, onaylı ve premium markaları ile çalışmaktayız.",
+                
+                cont_title: "Bize Ulaşın<br><span class='sub-en' style='color: #b5952f;'>Contact Us</span>", 
+                cont_addr: "Adres / Address:", cont_phone: "Telefon / Phone:", cont_hours: "Çalışma Saatleri / Hours:", cont_everyday: "Her Gün (Everyday): 09:00 - 01:00",
+                footer_txt: "Tüm hakları saklıdır. / All rights reserved.",
+                
+                mod_title: "Hızlı Randevu<br><span class='sub-en'>Quick Booking</span>", mod_desc: "Bilgilerinizi doldurun, randevunuz WhatsApp üzerinden bize ulaşsın.", mod_btn: "WhatsApp'a Git",
+                mod_name: "Adınız Soyadınız / Full Name", mod_s1: "Erkek Saç & Sakal / Men's Hair", mod_s2: "Kadın Saç Tasarımı / Women's Hair", mod_s3: "Protez Tırnak / Prosthetic Nails", mod_s4: "Manikür & Pedikür / Mani & Pedi"
             },
             en: {
                 nav_about: "About Us", nav_services: "Services", nav_gallery: "Gallery", nav_contact: "Contact", nav_book: "Book Now",
@@ -371,11 +382,11 @@
                 srv_3_i1: "Gel Prosthetic Nails", srv_3_i2: "Permanent Polish", srv_3_i3: "Custom Nail Art",
                 srv_4_i1: "Classic Manicure", srv_4_i2: "Medical Pedicure", srv_4_i3: "Callus Treatment",
                 gal_title: "Our Gallery", 
-                rev_title: "What Our Clients Say", rev_sub: "Testimonials",
+                rev_title: "What Our Clients Say",
                 rev_1_txt: "\"I was in Antalya for holiday. Truly amazing attention and skill. Haircut and beard shave were exactly what I wanted. Highly recommended.\"",
                 rev_2_txt: "\"Went for prosthetic nails and a manicure, the staff was very friendly and the salon was incredibly hygienic. Very happy with the result!\"",
                 rev_3_txt: "\"Being open until 1 AM is a huge advantage. Went comfortably after work for hair care. Definitely my favorite place.\"",
-                faq_title: "Frequently Asked Questions", faq_sub: "FAQ",
+                faq_title: "Frequently Asked Questions",
                 faq_1_q: "Can I walk in without an appointment?", faq_1_a: "We try to accommodate walk-ins, but we highly recommend booking an appointment via WhatsApp to avoid waiting.",
                 faq_2_q: "What are your working hours?", faq_2_a: "We provide uninterrupted service every day of the week, from 09:00 AM to 01:00 AM.",
                 faq_3_q: "What brand products do you use?", faq_3_a: "We care about your hair and skin health, so we use industry-leading, approved, and premium brands.",
@@ -401,11 +412,11 @@
                 srv_3_i1: "Gel-Nägel", srv_3_i2: "Dauerhafter Lack", srv_3_i3: "Nail Art",
                 srv_4_i1: "Klassische Maniküre", srv_4_i2: "Medizinische Pediküre", srv_4_i3: "Hornhautbehandlung",
                 gal_title: "Unsere Galerie", 
-                rev_title: "Was unsere Kunden sagen", rev_sub: "Erfahrungsberichte",
+                rev_title: "Was unsere Kunden sagen",
                 rev_1_txt: "\"Ich war für einen Urlaub in Antalya. Wirklich erstaunliche Aufmerksamkeit und Fähigkeit. Haarschnitt und Bartrasur waren genau das, was ich wollte.\"",
                 rev_2_txt: "\"Ging für prothetische Nägel und eine Maniküre, das Personal war sehr freundlich und der Salon unglaublich hygienisch. Sehr zufrieden!\"",
                 rev_3_txt: "\"Dass sie bis 1 Uhr morgens geöffnet haben, ist ein riesiger Vorteil. Nach der Arbeit bequem zur Haarpflege gegangen. Definitiv mein Lieblingsort.\"",
-                faq_title: "Häufig gestellte Fragen", faq_sub: "FAQ",
+                faq_title: "Häufig gestellte Fragen",
                 faq_1_q: "Kann ich ohne Termin kommen?", faq_1_a: "Wir bemühen uns, zu helfen, empfehlen aber dringend, einen Termin über WhatsApp zu buchen, um Wartezeiten zu vermeiden.",
                 faq_2_q: "Wie sind Ihre Öffnungszeiten?", faq_2_a: "Wir bieten jeden Tag der Woche von 09:00 bis 01:00 Uhr ununterbrochenen Service.",
                 faq_3_q: "Welche Markenprodukte verwenden Sie?", faq_3_a: "Wir kümmern uns um Ihre Haar- und Hautgesundheit und verwenden branchenführende Premium-Marken.",
@@ -431,11 +442,11 @@
                 srv_3_i1: "أظافر جل", srv_3_i2: "طلاء دائم", srv_3_i3: "فن الأظافر",
                 srv_4_i1: "مانيكير كلاسيكي", srv_4_i2: "باديكير طبي", srv_4_i3: "علاج مسامير القدم",
                 gal_title: "معرضنا", 
-                rev_title: "ماذا يقول عملاؤنا؟", rev_sub: "الشهادات",
+                rev_title: "ماذا يقول عملاؤنا؟",
                 rev_1_txt: "\"كنت في أنطاليا لقضاء عطلة. اهتمام ومهارة مذهلة حقًا. قصة الشعر وحلاقة اللحية كانت بالضبط ما أردت. موصى به بشدة.\"",
                 rev_2_txt: "\"ذهبت لتركيب الأظافر الصناعية والمانيكير، وكان الموظفون ودودين للغاية والصالون صحي بشكل لا يصدق. سعيد جدا بالنتيجة!\"",
                 rev_3_txt: "\"الفتح حتى الساعة 1 صباحًا ميزة كبيرة. ذهبت بشكل مريح بعد العمل للعناية بالشعر. بالتأكيد مكاني المفضل.\"",
-                faq_title: "أسئلة مكررة", faq_sub: "أسئلة شائعة",
+                faq_title: "أسئلة مكررة",
                 faq_1_q: "هل يمكنني المجيء بدون موعد؟", faq_1_a: "نحاول المساعدة، لكننا نوصي بشدة بحجز موعد عبر واتساب لتجنب الانتظار.",
                 faq_2_q: "ما هي ساعات العمل لديكم؟", faq_2_a: "نقدم خدمة متواصلة كل يوم من أيام الأسبوع، من الساعة 09:00 صباحًا حتى 01:00 صباحًا.",
                 faq_3_q: "ما هي المنتجات التجارية التي تستخدمونها؟", faq_3_a: "نحن نهتم بصحة شعرك وبشرتك، لذلك نستخدم العلامات التجارية الرائدة والمعتمدة والمتميزة.",
@@ -479,6 +490,7 @@
             const lang = document.getElementById("langSwitcher").value;
             const isim = document.getElementById("isim").value;
             const hizmetSelect = document.getElementById("hizmet");
+            // Formu gönderirken <select> içindeki TR/EN metni WhatsApp'a gider
             const hizmet = hizmetSelect.options[hizmetSelect.selectedIndex].text; 
             const tarih = document.getElementById("tarih").value;
             const saat = document.getElementById("saat").value;
