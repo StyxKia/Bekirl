@@ -13,7 +13,7 @@
         
         /* NAVBAR & DİL SEÇİCİ */
         header { background-color: #1a1a1a; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 3px solid #d4af37; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .logo { font-size: 26px; font-weight: bold; letter-spacing: 2px; color: #fff; text-transform: uppercase; }
+        .logo { font-size: 26px; font-weight: bold; letter-spacing: 2px; color: #fff; text-transform: uppercase; text-align: center; }
         .logo span { color: #d4af37; }
         .nav-links { display: flex; gap: 20px; color: #fff; align-items: center; }
         .nav-links a { font-weight: 500; transition: color 0.3s; font-size: 0.95rem; }
@@ -24,20 +24,21 @@
         .lang-switch:focus { border-color: #fff; }
 
         /* BUTONLAR */
-        .btn-whatsapp { background-color: #25D366; color: white; border-radius: 30px; border: none; cursor: pointer; transition: all 0.3s ease; font-weight: bold; padding: 10px 20px; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-whatsapp { background-color: #25D366; color: white; border-radius: 30px; border: none; cursor: pointer; transition: all 0.3s ease; font-weight: bold; padding: 10px 20px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
         .btn-whatsapp:hover { background-color: #1ebe57; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transform: translateY(-2px); }
-        .btn-gold { background-color: #d4af37; color: #1a1a1a; padding: 12px 30px; border-radius: 30px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
+        .btn-gold { background-color: #d4af37; color: #1a1a1a; padding: 12px 30px; border-radius: 30px; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; text-transform: uppercase; display: inline-flex; justify-content: center; }
         .btn-gold:hover { background-color: #1a1a1a; color: #d4af37; border: 1px solid #d4af37; }
 
         /* HERO (KARŞILAMA EKRANI) */
-        .hero { height: 80vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 20px; }
+        .hero { min-height: 80vh; padding: 100px 20px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; }
         .hero h1 { font-size: 4rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
         .hero h1 span { color: #d4af37; }
         .hero p { font-size: 1.4rem; margin-bottom: 30px; font-style: italic; max-width: 600px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+        .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
 
         /* BÖLÜM BAŞLIKLARI */
-        .section-title { text-align: center; margin: 80px 0 20px; font-size: 2.5rem; color: #1a1a1a; text-transform: uppercase; letter-spacing: 1px; }
-        .section-subtitle { text-align: center; color: #777; margin-bottom: 50px; font-size: 1.1rem; }
+        .section-title { text-align: center; margin: 80px 0 20px; font-size: 2.5rem; color: #1a1a1a; text-transform: uppercase; letter-spacing: 1px; padding: 0 15px; }
+        .section-subtitle { text-align: center; color: #777; margin-bottom: 50px; font-size: 1.1rem; padding: 0 15px; }
         .section-title::after { content: ''; display: block; width: 80px; height: 3px; background: #d4af37; margin: 15px auto 0; }
 
         /* HAKKIMIZDA & NEDEN BİZ */
@@ -45,7 +46,7 @@
         .about-text { flex: 1; min-width: 300px; }
         .about-text h3 { font-size: 2rem; color: #d4af37; margin-bottom: 20px; }
         .about-text p { margin-bottom: 15px; font-size: 1.1rem; color: #555; text-align: justify; }
-        .features-grid { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; min-width: 300px; }
+        .features-grid { flex: 1; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; width: 100%; }
         .feature-box { background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; border-bottom: 3px solid #d4af37; transition: 0.3s; }
         .feature-box:hover { transform: translateY(-5px); }
         .feature-box i { font-size: 2rem; color: #1a1a1a; margin-bottom: 10px; }
@@ -53,7 +54,7 @@
 
         /* HİZMETLER KARTLARI */
         .services-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 0 5%; margin-bottom: 50px; }
-        .service-card { background: #fff; width: 320px; padding: 40px 25px; text-align: center; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); transition: transform 0.3s; border-bottom: 4px solid transparent; display: flex; flex-direction: column; }
+        .service-card { background: #fff; width: 100%; max-width: 340px; padding: 40px 25px; text-align: center; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); transition: transform 0.3s; border-bottom: 4px solid transparent; display: flex; flex-direction: column; }
         .service-card:hover { transform: translateY(-10px); border-bottom: 4px solid #d4af37; }
         .service-icon { font-size: 2.8rem; color: #d4af37; margin-bottom: 15px; }
         .service-card h3 { font-size: 1.5rem; color: #1a1a1a; margin-bottom: 15px; }
@@ -74,16 +75,16 @@
         .gallery-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; opacity: 0; transition: 0.3s; color: #d4af37; font-size: 2rem; }
         .gallery-item:hover .gallery-overlay { opacity: 1; }
 
-        /* YORUMLAR / TESTIMONIALS (GERİ EKLENDİ) */
+        /* YORUMLAR / TESTIMONIALS */
         .reviews-section { background: #1a1a1a; color: #fff; padding: 80px 5%; text-align: center; }
         .reviews-section .section-title { color: #fff; margin-top: 0; }
         .reviews-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; }
-        .review-card { background: #222; width: 320px; padding: 30px; border-radius: 10px; border-top: 3px solid #d4af37; position: relative; text-align: left; }
+        .review-card { background: #222; width: 100%; max-width: 340px; padding: 30px; border-radius: 10px; border-top: 3px solid #d4af37; position: relative; text-align: left; }
         .review-card i { color: #d4af37; font-size: 1.5rem; margin-bottom: 15px; }
         .review-text { font-style: italic; color: #ccc; margin-bottom: 20px; font-size: 0.95rem; }
         .review-author { font-weight: bold; color: #fff; }
 
-        /* SIKÇA SORULAN SORULAR / FAQ (GERİ EKLENDİ) */
+        /* SIKÇA SORULAN SORULAR / FAQ */
         .faq-container { max-width: 800px; margin: 0 auto 80px; padding: 0 20px; }
         .faq-item { background: #fff; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); overflow: hidden; }
         .faq-item summary { padding: 20px; font-weight: bold; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; color: #1a1a1a; }
@@ -98,8 +99,8 @@
         .contact-info h3 { color: #d4af37; margin-bottom: 30px; font-size: 2rem; }
         .info-item { display: flex; align-items: flex-start; margin-bottom: 25px; font-size: 1.1rem; }
         .info-item i { color: #d4af37; font-size: 1.5rem; margin-right: 15px; margin-top: 5px; }
-        .map-container { flex: 1.5; min-width: 300px; }
-        iframe { width: 100%; height: 100%; min-height: 400px; border: 0; }
+        .map-container { flex: 1.5; min-width: 300px; min-height: 400px; }
+        iframe { width: 100%; height: 100%; border: 0; }
 
         /* FOOTER */
         footer { background: #000; color: #777; text-align: center; padding: 20px; font-size: 0.9rem; }
@@ -107,18 +108,37 @@
 
         /* WHATSAPP MODAL */
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center; backdrop-filter: blur(5px); }
-        .modal-content { background-color: #fff; padding: 40px; border-radius: 15px; width: 90%; max-width: 450px; text-align: center; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
-        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #333; transition: color 0.3s; }
+        .modal-content { background-color: #fff; padding: 40px 20px; border-radius: 15px; width: 95%; max-width: 450px; text-align: center; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        .close-btn { position: absolute; top: 10px; right: 20px; font-size: 32px; cursor: pointer; color: #333; transition: color 0.3s; }
         .close-btn:hover { color: #d4af37; }
         .modal input, .modal select { width: 100%; padding: 15px; margin: 10px 0; background: #f5f5f5; border: 1px solid #ddd; color: #333; border-radius: 8px; font-size: 1rem; }
         .modal input:focus, .modal select:focus { outline: none; border-color: #d4af37; background: #fff; }
-        .modal button { width: 100%; margin-top: 20px; font-size: 1.1rem; padding: 15px; justify-content: center; }
+        .modal button { width: 100%; margin-top: 15px; font-size: 1.1rem; padding: 15px; justify-content: center; }
 
-        /* MOBİL DÜZENLEMELER */
+        /* 📱 %100 MOBİL UYUM (RESPONSIVE) AYARLARI 📱 */
         @media (max-width: 768px) {
-            header { flex-direction: column; gap: 15px; padding: 15px; }
-            .hero h1 { font-size: 2.5rem; }
-            .about-section { flex-direction: column; }
+            /* Navbar ve Menü Düzeni */
+            header { flex-direction: column; padding: 15px; gap: 15px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 12px; font-size: 0.9rem; }
+            
+            /* Karşılama Ekranı (Hero) Küçültmesi */
+            .hero { min-height: 60vh; padding: 50px 15px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            .hero-buttons { flex-direction: column; width: 100%; padding: 0 20px; }
+            .hero-buttons button { width: 100%; }
+
+            /* Başlıklar */
+            .section-title { font-size: 2rem; margin: 50px 0 15px; }
+            .section-subtitle { margin-bottom: 30px; }
+
+            /* Kutucuklar (Tek Sütun ve Ekrana Sıfırlama) */
+            .features-grid { grid-template-columns: 1fr; }
+            .services-container, .reviews-container, .gallery-container { padding: 0 15px; gap: 20px; }
+            
+            /* İletişim ve Harita */
+            .contact-info { padding: 40px 20px; }
+            .map-container { min-height: 300px; }
         }
     </style>
 </head>
@@ -146,7 +166,7 @@
     <section class="hero">
         <h1 data-i18n="hero_title">Kusursuz Görünümün <span>Yeni Adresi</span></h1>
         <p data-i18n="hero_desc">Antalya Kemerağzı'nda Premium Kuaför & Güzellik Salonu</p>
-        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+        <div class="hero-buttons">
             <button class="btn-whatsapp" onclick="openModal()" style="font-size: 1.1rem; padding: 15px 35px;"><i class="fab fa-whatsapp"></i> <span data-i18n="hero_btn1">Hızlı Randevu Al</span></button>
             <a href="#hizmetler"><button class="btn-gold" data-i18n="hero_btn2">Hizmetleri İncele</button></a>
         </div>
@@ -286,7 +306,7 @@
     <div class="modal" id="randevuModal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">×</span>
-            <h2 data-i18n="mod_title">Hızlı Randevu</h2>
+            <h2 data-i18n="mod_title" style="margin-top:10px;">Hızlı Randevu</h2>
             <p data-i18n="mod_desc">Bilgilerinizi doldurun, randevunuz WhatsApp üzerinden bize ulaşsın.</p>
             <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
                 <input type="text" id="isim" placeholder="Adınız Soyadınız" data-placeholder="mod_name" required>
@@ -322,19 +342,14 @@
                 srv_3_i1: "Jel Protez Tırnak", srv_3_i2: "Kalıcı Oje", srv_3_i3: "Kişiye Özel Nail Art",
                 srv_4_i1: "Klasik Manikür", srv_4_i2: "Medikal Pedikür", srv_4_i3: "Nasır & Topuk Tedavisi",
                 gal_title: "Salonumuzdan Kareler", 
-                
-                /* Yorumlar TR */
                 rev_title: "Müşterilerimiz Ne Diyor?", rev_sub: "Yorumlar",
                 rev_1_txt: "\"Tatil için Antalya'daydım. Gerçekten muazzam bir ilgi ve ustalık. Saç kesimi ve sakal tıraşı tam istediğim gibi oldu. Şiddetle tavsiye ederim.\"",
                 rev_2_txt: "\"Protez tırnak ve manikür için gittim, çalışanlar çok güler yüzlü ve salon inanılmaz hijyenikti. Sonuçtan çok memnun kaldım, ellerinize sağlık!\"",
                 rev_3_txt: "\"Gece 1'e kadar açık olmaları büyük avantaj. İş çıkışı rahat rahat gidip saç bakımımı yaptırdım. Kesinlikle favori mekanım.\"",
-                
-                /* FAQ TR */
                 faq_title: "Sıkça Sorulan Sorular", faq_sub: "Merak Edilenler",
                 faq_1_q: "Randevusuz gelebilir miyim?", faq_1_a: "Müsaitlik durumuna göre yardımcı olmaya çalışıyoruz, ancak bekleme yaşamamanız için mutlaka WhatsApp üzerinden randevu oluşturmanızı tavsiye ederiz.",
                 faq_2_q: "Çalışma saatleriniz nelerdir?", faq_2_a: "Haftanın her günü, sabah 09:00'dan gece 01:00'a kadar siz değerli müşterilerimize kesintisiz hizmet vermekteyiz.",
                 faq_3_q: "Hangi marka ürünler kullanıyorsunuz?", faq_3_a: "Saç ve cilt sağlığınızı önemsediğimiz için sektörün önde gelen, onaylı ve premium markaları ile çalışmaktayız.",
-
                 cont_title: "Bize Ulaşın", cont_addr: "Adres:", cont_phone: "Telefon:", cont_hours: "Çalışma Saatleri:", cont_everyday: "Her Gün: 09:00 - 01:00",
                 footer_txt: "Tüm hakları saklıdır.",
                 mod_title: "Hızlı Randevu", mod_desc: "Bilgilerinizi doldurun, randevunuz WhatsApp üzerinden bize ulaşsın.", mod_btn: "WhatsApp'a Git",
@@ -357,19 +372,14 @@
                 srv_3_i1: "Gel Prosthetic Nails", srv_3_i2: "Permanent Polish", srv_3_i3: "Custom Nail Art",
                 srv_4_i1: "Classic Manicure", srv_4_i2: "Medical Pedicure", srv_4_i3: "Callus Treatment",
                 gal_title: "Our Gallery", 
-
-                /* Yorumlar EN */
                 rev_title: "What Our Clients Say", rev_sub: "Testimonials",
                 rev_1_txt: "\"I was in Antalya for holiday. Truly amazing attention and skill. Haircut and beard shave were exactly what I wanted. Highly recommended.\"",
                 rev_2_txt: "\"Went for prosthetic nails and a manicure, the staff was very friendly and the salon was incredibly hygienic. Very happy with the result!\"",
                 rev_3_txt: "\"Being open until 1 AM is a huge advantage. Went comfortably after work for hair care. Definitely my favorite place.\"",
-                
-                /* FAQ EN */
                 faq_title: "Frequently Asked Questions", faq_sub: "FAQ",
                 faq_1_q: "Can I walk in without an appointment?", faq_1_a: "We try to accommodate walk-ins, but we highly recommend booking an appointment via WhatsApp to avoid waiting.",
                 faq_2_q: "What are your working hours?", faq_2_a: "We provide uninterrupted service every day of the week, from 09:00 AM to 01:00 AM.",
                 faq_3_q: "What brand products do you use?", faq_3_a: "We care about your hair and skin health, so we use industry-leading, approved, and premium brands.",
-
                 cont_title: "Contact Us", cont_addr: "Address:", cont_phone: "Phone:", cont_hours: "Working Hours:", cont_everyday: "Everyday: 09:00 - 01:00",
                 footer_txt: "All rights reserved.",
                 mod_title: "Quick Booking", mod_desc: "Fill in your details to book via WhatsApp.", mod_btn: "Go to WhatsApp",
@@ -392,19 +402,14 @@
                 srv_3_i1: "Gel-Nägel", srv_3_i2: "Dauerhafter Lack", srv_3_i3: "Nail Art",
                 srv_4_i1: "Klassische Maniküre", srv_4_i2: "Medizinische Pediküre", srv_4_i3: "Hornhautbehandlung",
                 gal_title: "Unsere Galerie", 
-
-                /* Yorumlar DE */
                 rev_title: "Was unsere Kunden sagen", rev_sub: "Erfahrungsberichte",
                 rev_1_txt: "\"Ich war für einen Urlaub in Antalya. Wirklich erstaunliche Aufmerksamkeit und Fähigkeit. Haarschnitt und Bartrasur waren genau das, was ich wollte.\"",
                 rev_2_txt: "\"Ging für prothetische Nägel und eine Maniküre, das Personal war sehr freundlich und der Salon unglaublich hygienisch. Sehr zufrieden!\"",
                 rev_3_txt: "\"Dass sie bis 1 Uhr morgens geöffnet haben, ist ein riesiger Vorteil. Nach der Arbeit bequem zur Haarpflege gegangen. Definitiv mein Lieblingsort.\"",
-                
-                /* FAQ DE */
                 faq_title: "Häufig gestellte Fragen", faq_sub: "FAQ",
                 faq_1_q: "Kann ich ohne Termin kommen?", faq_1_a: "Wir bemühen uns, zu helfen, empfehlen aber dringend, einen Termin über WhatsApp zu buchen, um Wartezeiten zu vermeiden.",
                 faq_2_q: "Wie sind Ihre Öffnungszeiten?", faq_2_a: "Wir bieten jeden Tag der Woche von 09:00 bis 01:00 Uhr ununterbrochenen Service.",
                 faq_3_q: "Welche Markenprodukte verwenden Sie?", faq_3_a: "Wir kümmern uns um Ihre Haar- und Hautgesundheit und verwenden branchenführende Premium-Marken.",
-
                 cont_title: "Kontaktiere uns", cont_addr: "Adresse:", cont_phone: "Telefon:", cont_hours: "Öffnungszeiten:", cont_everyday: "Jeden Tag: 09:00 - 01:00",
                 footer_txt: "Alle Rechte vorbehalten.",
                 mod_title: "Schnelle Buchung", mod_desc: "Füllen Sie Ihre Daten aus, um über WhatsApp zu buchen.", mod_btn: "Zu WhatsApp",
@@ -427,19 +432,14 @@
                 srv_3_i1: "أظافر جل", srv_3_i2: "طلاء دائم", srv_3_i3: "فن الأظافر",
                 srv_4_i1: "مانيكير كلاسيكي", srv_4_i2: "باديكير طبي", srv_4_i3: "علاج مسامير القدم",
                 gal_title: "معرضنا", 
-
-                /* Yorumlar AR */
                 rev_title: "ماذا يقول عملاؤنا؟", rev_sub: "الشهادات",
                 rev_1_txt: "\"كنت في أنطاليا لقضاء عطلة. اهتمام ومهارة مذهلة حقًا. قصة الشعر وحلاقة اللحية كانت بالضبط ما أردت. موصى به بشدة.\"",
                 rev_2_txt: "\"ذهبت لتركيب الأظافر الصناعية والمانيكير، وكان الموظفون ودودين للغاية والصالون صحي بشكل لا يصدق. سعيد جدا بالنتيجة!\"",
                 rev_3_txt: "\"الفتح حتى الساعة 1 صباحًا ميزة كبيرة. ذهبت بشكل مريح بعد العمل للعناية بالشعر. بالتأكيد مكاني المفضل.\"",
-                
-                /* FAQ AR */
                 faq_title: "أسئلة مكررة", faq_sub: "أسئلة شائعة",
                 faq_1_q: "هل يمكنني المجيء بدون موعد؟", faq_1_a: "نحاول المساعدة، لكننا نوصي بشدة بحجز موعد عبر واتساب لتجنب الانتظار.",
                 faq_2_q: "ما هي ساعات العمل لديكم؟", faq_2_a: "نقدم خدمة متواصلة كل يوم من أيام الأسبوع، من الساعة 09:00 صباحًا حتى 01:00 صباحًا.",
                 faq_3_q: "ما هي المنتجات التجارية التي تستخدمونها؟", faq_3_a: "نحن نهتم بصحة شعرك وبشرتك، لذلك نستخدم العلامات التجارية الرائدة والمعتمدة والمتميزة.",
-
                 cont_title: "اتصل بنا", cont_addr: "العنوان:", cont_phone: "الهاتف:", cont_hours: "ساعات العمل:", cont_everyday: "كل يوم: 09:00 - 01:00",
                 footer_txt: "كل الحقوق محفوظة.",
                 mod_title: "حجز سريع", mod_desc: "أدخل التفاصيل الخاصة بك للحجز عبر واتساب.", mod_btn: "اذهب إلى واتساب",
